@@ -1,4 +1,11 @@
+import type { MemberSlug } from '@/features/team/team'
 import type { ToolLinkKey, ToolSlug } from '@/features/tools/tools'
+
+export interface MemberCopy {
+  role: string
+  bio: string
+  patron: string
+}
 
 export interface ToolCopy {
   name: string
@@ -10,6 +17,7 @@ export const en = {
   nav: {
     mission: 'Mission',
     tools: 'Tools',
+    team: 'Team',
     github: 'GitHub',
     skipToContent: 'Skip to content',
     language: 'Language',
@@ -119,6 +127,27 @@ export const en = {
         name: 'Prumo',
         tagline: 'A TypeScript project where the decisions are already made, and written down.',
         body: 'Prumo starts a project with the framework, the module layout, the database rules, the auth wiring and the test boundaries already chosen. Each decision was made once, recorded with its reasoning and its price, and turned into something that runs. It is a command-line tool and a desktop application over the same conventions.',
+      },
+    },
+  },
+  team: {
+    title: 'Team',
+    description:
+      'Who is behind St. Joseph Works: the people building the tools, and the saints they work under.',
+    heading: 'Who is behind this',
+    standfirst:
+      'St. Joseph Works is small, and means to stay honest about it. These are the people building the tools, and the saints they work under.',
+    labels: {
+      devotion: 'Devotion',
+    },
+    links: {
+      github: 'GitHub',
+    },
+    items: <Record<MemberSlug, MemberCopy>>{
+      'leonardo-freitas': {
+        role: 'Head of Engineering',
+        bio: 'More than twelve years as a software developer. He started St. Joseph Works, to give inventors tools that take some of the weight off the work around the idea.',
+        patron: 'Saint Pier Giorgio Frassati',
       },
     },
   },

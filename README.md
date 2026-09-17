@@ -21,7 +21,7 @@ every page is static.
 
 | Command | What it does |
 |---|---|
-| `pnpm test` | Checks the dictionaries agree, and that every tool has copy and links in both languages |
+| `pnpm test` | Checks the dictionaries agree, and that every tool and member has copy in both languages |
 | `pnpm lint` | Biome |
 | `pnpm typecheck` | Generates Next's route types, then `tsc --noEmit`; also run before every push |
 | `pnpm build` · `pnpm start` | Production build, then serves it |
@@ -30,6 +30,13 @@ every page is static.
 
 Add it to [`src/features/tools/tools.ts`](src/features/tools/tools.ts), then add its name, tagline and
 description to both dictionaries under `tools.items`. The test fails until both languages have it.
+
+## Adding a team member
+
+Add them to [`src/features/team/team.ts`](src/features/team/team.ts) with their photo, GitHub and where
+they work, then add their role, description and devotion to both dictionaries under `team.items`. Every
+member is rendered by the same card, so nothing else changes. A photo hosted somewhere other than GitHub
+needs its host added to `images.remotePatterns` in `next.config.ts`.
 
 ## Conventions
 

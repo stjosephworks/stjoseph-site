@@ -1,10 +1,12 @@
+import type { MemberSlug } from '@/features/team/team'
 import type { ToolLinkKey, ToolSlug } from '@/features/tools/tools'
-import type { Dictionary, ToolCopy } from './en'
+import type { Dictionary, MemberCopy, ToolCopy } from './en'
 
 export const pt: Dictionary = {
   nav: {
     mission: 'Missão',
     tools: 'Ferramentas',
+    team: 'Time',
     github: 'GitHub',
     skipToContent: 'Pular para o conteúdo',
     language: 'Idioma',
@@ -118,6 +120,27 @@ export const pt: Dictionary = {
         name: 'Prumo',
         tagline: 'Um projeto TypeScript em que as decisões já estão tomadas, e escritas.',
         body: 'O Prumo começa um projeto com o framework, o desenho dos módulos, as regras de banco, a autenticação e os limites de teste já escolhidos. Cada decisão foi tomada uma vez, registrada com sua razão e seu preço, e transformada em algo que roda. É uma ferramenta de linha de comando e um aplicativo desktop sobre as mesmas convenções.',
+      },
+    },
+  },
+  team: {
+    title: 'Time',
+    description:
+      'Quem está por trás da St. Joseph Works: as pessoas que constroem as ferramentas, e os santos sob os quais trabalham.',
+    heading: 'Quem está por trás disso',
+    standfirst:
+      'A St. Joseph Works é pequena, e pretende ser honesta quanto a isso. Estas são as pessoas que constroem as ferramentas, e os santos sob os quais trabalham.',
+    labels: {
+      devotion: 'Devoção',
+    },
+    links: {
+      github: 'GitHub',
+    },
+    items: <Record<MemberSlug, MemberCopy>>{
+      'leonardo-freitas': {
+        role: 'Head of Engineering',
+        bio: 'Mais de doze anos como desenvolvedor de software. Idealizador da St. Joseph Works, para dar aos inventores ferramentas que tirem parte do peso do trabalho ao redor da ideia.',
+        patron: 'São Pier Giorgio Frassati',
       },
     },
   },

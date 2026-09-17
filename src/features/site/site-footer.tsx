@@ -26,6 +26,11 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 {t.nav.tools}
               </Link>
             </li>
+            <li>
+              <Link href={path(locale, 'team')} className="hover:text-navy">
+                {t.nav.team}
+              </Link>
+            </li>
           </ul>
         </div>
 

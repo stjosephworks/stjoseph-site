@@ -12,6 +12,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const links = [
     { href: path(locale, 'mission'), label: t.nav.mission },
     { href: path(locale, 'tools'), label: t.nav.tools },
+    { href: path(locale, 'team'), label: t.nav.team },
   ]
 
   return (

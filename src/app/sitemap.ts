@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { locales } from '@/features/i18n/locales'
 import { site } from '@/lib/site'
 
-const pages = ['', 'mission', 'tools']
+const pages = ['', 'mission', 'tools', 'team']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
