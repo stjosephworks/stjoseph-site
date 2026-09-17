@@ -1,0 +1,37 @@
+# stjoseph-site
+
+The site for [St. Joseph Works](https://github.com/stjosephworks): what the organization is for, its
+mission, and the tools it has built. Each tool is a card leading to that tool's own site.
+
+## Requirements
+
+Node 22.17 or later, and pnpm. The build downloads its font from Google Fonts, so it needs network access.
+
+## Running it
+
+```sh
+pnpm install
+pnpm dev
+```
+
+The site runs on `http://localhost:3300`, leaving 3000 to an API and 3200 to `prumo-site`. It calls no API;
+every page is static.
+
+## Everyday commands
+
+| Command | What it does |
+|---|---|
+| `pnpm test` | Checks the dictionaries agree, and that every tool has copy and links in both languages |
+| `pnpm lint` | Biome |
+| `pnpm typecheck` | Generates Next's route types, then `tsc --noEmit`; also run before every push |
+| `pnpm build` · `pnpm start` | Production build, then serves it |
+
+## Adding a tool
+
+Add it to [`src/features/tools/tools.ts`](src/features/tools/tools.ts), then add its name, tagline and
+description to both dictionaries under `tools.items`. The test fails until both languages have it.
+
+## Conventions
+
+The rules this project follows live in `.prumo/`, and `AGENTS.md` points to them. Read those before
+changing how something is done.
