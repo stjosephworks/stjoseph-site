@@ -16,7 +16,7 @@ export interface Tool {
 export const tools: Tool[] = [
   {
     slug: 'prumo',
-    site: 'https://prumo.vercel.app',
+    site: 'https://prumo.stjosephworks.org',
     state: 'available',
     links: [
       { key: 'repository', href: 'https://github.com/stjosephworks/prumo' },
