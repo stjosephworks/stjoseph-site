@@ -3,6 +3,9 @@
 The site for [St. Joseph Works](https://github.com/stjosephworks): what the organization is for, its
 mission, and the tools it has built. Each tool is a card leading to that tool's own site.
 
+Published at [stjosephworks.org](https://stjosephworks.org). Prumo, the first tool, is at
+[prumo.stjosephworks.org](https://prumo.stjosephworks.org).
+
 ## Requirements
 
 Node 22.17 or later, and pnpm. The build downloads its font from Google Fonts, so it needs network access.
