@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { lang } from 'next/root-params'
 import { getDictionary } from '@/features/i18n/dictionary'
 import type { Locale } from '@/features/i18n/locales'
-import { SquareMark } from '@/features/site/brand'
 import { Prose, Section } from '@/features/site/section'
 import { ToolCard } from '@/features/tools/tool-card'
 import { tools } from '@/features/tools/tools'
@@ -27,14 +26,9 @@ export default async function HomePage() {
       <div className="relative md:pl-16">
         <span
           aria-hidden="true"
-          className="bench-rule absolute left-[0.875rem] top-[6.25rem] hidden w-px bg-rule md:block"
+          className="bench-rule bench-rule-draw absolute left-[0.875rem] top-[6.25rem] hidden w-px bg-rule md:block"
           style={{ bottom: 0 }}
         />
-        <SquareMark
-          className="bench-rule-draw absolute left-0 top-2 hidden w-12 md:block"
-          armLength={34}
-        />
-
         <section className="py-16 sm:py-24">
           <p className="flex flex-wrap items-baseline gap-x-3 font-serif text-sm italic text-brass">
             {t.common.latin}
