@@ -3,16 +3,13 @@ import { getDictionary } from '@/features/i18n/dictionary'
 import type { Locale } from '@/features/i18n/locales'
 import { tools } from '@/features/tools/tools'
 import { external, path } from '@/lib/routes'
-import { SquareMark } from './brand'
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const t = getDictionary(locale)
 
   return (
     <footer className="mt-24 border-t border-rule">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[auto_1fr_1fr_1fr]">
-        <SquareMark className="h-16 w-6" armLength={38} />
-
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-3">
         <div>
           <h2 className="font-serif text-sm font-semibold">{t.footer.sections.organization}</h2>
           <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
