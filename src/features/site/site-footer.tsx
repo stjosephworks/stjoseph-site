@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { getDictionary } from '@/features/i18n/dictionary'
-import type { Locale } from '@/features/i18n/locales'
-import { tools } from '@/features/tools/tools'
+import { type Locale, localeInfo } from '@/features/i18n/locales'
+import { toolSite, tools } from '@/features/tools/tools'
 import { external, path } from '@/lib/routes'
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -36,7 +36,11 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
             {tools.map((tool) => (
               <li key={tool.slug}>
-                <a href={tool.site} className="hover:text-navy">
+                <a
+                  href={toolSite(tool, locale)}
+                  hrefLang={localeInfo[locale].hreflang}
+                  className="hover:text-navy"
+                >
                   {t.tools.items[tool.slug].name}
                 </a>
               </li>
