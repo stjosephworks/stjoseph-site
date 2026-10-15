@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { getDictionary } from '@/features/i18n/dictionary'
 import { locales } from '@/features/i18n/locales'
-import { toolSlugs, tools } from './tools'
+import { toolSite, toolSlugs, tools } from './tools'
 
 describe('the tools', () => {
   it('lists every slug exactly once', () => {
@@ -37,5 +37,13 @@ describe('the tools', () => {
           expect(labels[link.key], `${locale}.${link.key}`).toBeTruthy()
       }
     }
+  })
+
+  it('sends a card to the site of its tool in the language of the page', () => {
+    for (const tool of tools)
+      for (const locale of locales) expect(toolSite(tool, locale)).toBe(`${tool.site}/${locale}`)
+
+    const prumo = tools.find((tool) => tool.slug === 'prumo')
+    expect(prumo && toolSite(prumo, 'es')).toBe('https://prumo.stjosephworks.org/es')
   })
 })

@@ -5,11 +5,17 @@ import type { Locale } from '@/features/i18n/locales'
 import { Prose } from '@/features/site/section'
 import { MemberCard } from '@/features/team/member-card'
 import { team } from '@/features/team/team'
+import { alternates } from '@/lib/routes'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getDictionary((await lang()) as Locale)
+  const locale = (await lang()) as Locale
+  const t = getDictionary(locale)
 
-  return { title: t.team.title, description: t.team.description }
+  return {
+    title: t.team.title,
+    description: t.team.description,
+    alternates: alternates(locale, 'team'),
+  }
 }
 
 export default async function TeamPage() {
