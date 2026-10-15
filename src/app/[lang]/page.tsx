@@ -6,14 +6,16 @@ import type { Locale } from '@/features/i18n/locales'
 import { Prose, Section } from '@/features/site/section'
 import { ToolCard } from '@/features/tools/tool-card'
 import { tools } from '@/features/tools/tools'
-import { path } from '@/lib/routes'
+import { alternates, path } from '@/lib/routes'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getDictionary((await lang()) as Locale)
+  const locale = (await lang()) as Locale
+  const t = getDictionary(locale)
 
   return {
     title: t.home.title,
     description: t.home.description,
+    alternates: alternates(locale),
   }
 }
 

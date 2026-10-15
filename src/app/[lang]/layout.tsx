@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { lang } from 'next/root-params'
 import '../globals.css'
 import { getDictionary } from '@/features/i18n/dictionary'
-import { isLocale, locales } from '@/features/i18n/locales'
+import { defaultLocale, isLocale, localeInfo, locales } from '@/features/i18n/locales'
 import { SiteFooter } from '@/features/site/site-footer'
 import { SiteHeader } from '@/features/site/site-header'
 import { site } from '@/lib/site'
@@ -36,17 +36,14 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = await lang()
-  const t = getDictionary(isLocale(locale ?? '') ? (locale as 'en' | 'pt') : 'en')
+  const raw = await lang()
+  const locale = raw !== undefined && isLocale(raw) ? raw : defaultLocale
+  const t = getDictionary(locale)
 
   return {
     metadataBase: new URL(site.url),
     title: { default: t.home.title, template: `%s · ${site.name}` },
     description: t.home.description,
-    alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(locales.map((one) => [one, `/${one}`])),
-    },
     openGraph: {
       title: t.home.title,
       description: t.home.description,
@@ -63,7 +60,10 @@ export default async function RootLayout({ children }: LayoutProps<'/[lang]'>) {
   const t = getDictionary(locale)
 
   return (
-    <html lang={locale} className={cn(serif.variable, sans.variable, mono.variable)}>
+    <html
+      lang={localeInfo[locale].lang}
+      className={cn(serif.variable, sans.variable, mono.variable)}
+    >
       <body className="font-sans antialiased">
         <a
           href="#content"
