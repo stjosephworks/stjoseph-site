@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ protocol: 'https', hostname: 'avatars.githubusercontent.com' }],
   },
-  redirects() {
-    return Promise.resolve([{ source: '/', destination: '/en', permanent: false }])
-  },
 }
 
 export default nextConfig

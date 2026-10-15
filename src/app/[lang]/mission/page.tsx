@@ -3,11 +3,17 @@ import { lang } from 'next/root-params'
 import { getDictionary } from '@/features/i18n/dictionary'
 import type { Locale } from '@/features/i18n/locales'
 import { Prose, Section } from '@/features/site/section'
+import { alternates } from '@/lib/routes'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getDictionary((await lang()) as Locale)
+  const locale = (await lang()) as Locale
+  const t = getDictionary(locale)
 
-  return { title: t.mission.title, description: t.mission.description }
+  return {
+    title: t.mission.title,
+    description: t.mission.description,
+    alternates: alternates(locale, 'mission'),
+  }
 }
 
 export default async function MissionPage() {

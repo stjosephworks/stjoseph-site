@@ -5,11 +5,17 @@ import type { Locale } from '@/features/i18n/locales'
 import { Prose } from '@/features/site/section'
 import { ToolCard } from '@/features/tools/tool-card'
 import { tools } from '@/features/tools/tools'
+import { alternates } from '@/lib/routes'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getDictionary((await lang()) as Locale)
+  const locale = (await lang()) as Locale
+  const t = getDictionary(locale)
 
-  return { title: t.tools.title, description: t.tools.description }
+  return {
+    title: t.tools.title,
+    description: t.tools.description,
+    alternates: alternates(locale, 'tools'),
+  }
 }
 
 export default async function ToolsPage() {

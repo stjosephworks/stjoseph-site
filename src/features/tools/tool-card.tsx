@@ -1,8 +1,8 @@
 import { ArrowUpRight } from 'lucide-react'
 import { getDictionary } from '@/features/i18n/dictionary'
-import type { Locale } from '@/features/i18n/locales'
+import { type Locale, localeInfo } from '@/features/i18n/locales'
 import { cn } from '@/lib/utils'
-import type { Tool } from './tools'
+import { type Tool, toolSite } from './tools'
 
 export function ToolCard({ tool, locale }: { tool: Tool; locale: Locale }) {
   const t = getDictionary(locale)
@@ -10,7 +10,11 @@ export function ToolCard({ tool, locale }: { tool: Tool; locale: Locale }) {
 
   return (
     <li className="flex flex-col border border-rule bg-card">
-      <a href={tool.site} className="group flex-1 p-6 sm:p-7">
+      <a
+        href={toolSite(tool, locale)}
+        hrefLang={localeInfo[locale].hreflang}
+        className="group flex-1 p-6 sm:p-7"
+      >
         <span className="flex items-start justify-between gap-4">
           <span className="font-serif text-2xl font-semibold tracking-tight text-navy group-hover:underline group-hover:decoration-brass group-hover:underline-offset-4">
             {copy.name}
