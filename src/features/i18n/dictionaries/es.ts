@@ -141,7 +141,7 @@ export const es: Dictionary = {
       'leonardo-freitas': {
         role: 'Head of Engineering',
         bio: 'Más de doce años como desarrollador de software. Fundó St. Joseph Works para dar a los inventores herramientas que les quiten parte del peso del trabajo que rodea a la idea.',
-        patron: 'San Pier Giorgio Frassati',
+        patron: 'Padre Pío de Pietrelcina',
       },
     },
   },

@@ -147,7 +147,7 @@ export const en = {
       'leonardo-freitas': {
         role: 'Head of Engineering',
         bio: 'More than twelve years as a software developer. He started St. Joseph Works, to give inventors tools that take some of the weight off the work around the idea.',
-        patron: 'Saint Pier Giorgio Frassati',
+        patron: 'Padre Pio of Pietrelcina',
       },
     },
   },
